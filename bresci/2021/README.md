@@ -8,6 +8,6 @@ The different implementations are in the Jupyter Notebook files in this reposito
 
 
 
-#Acknowledgements
+# Acknowledgements
 
 Authors thank LNCC (Laboratório Nacional de Computação Científica) for grant 205341 AMPEMI (call 2020-I), which allows access to the Santos Dumont supercomputer (node of the SINAPAD, the Brazilian HPC system).
