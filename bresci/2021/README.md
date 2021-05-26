@@ -5,3 +5,9 @@ Several of the most important high-performance computing approaches available in
 The adopted test problem is a known problem of heat transfer over a finite surface, modeled by the partial differential equation of Poisson. It models the normalized temperature distribution on a surface over a series of iterations that make up the simulation. As commonly used for numerical solutions, this equation is discretized in a finite grid and solved using a finite difference method. The specific algorithm requires the calculation of a 5-point stencil in the 2D domain grid to update temperatures every step of the time.
 
 The different implementations are in the Jupyter Notebook files in this repository. Notebooks were also used for experimentation, and an organization of ideas was attempted, but it is still a work in progress.
+
+
+
+#Acknowledgements
+
+Authors thank LNCC (Laboratório Nacional de Computação Científica) for grant 205341 AMPEMI (call 2020-I), which allows access to the Santos Dumont supercomputer (node of the SINAPAD, the Brazilian HPC system).
