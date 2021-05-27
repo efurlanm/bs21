@@ -12,6 +12,7 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 
 # Links of interest
 
+* BALAJI, P. et al. Advanced MPI Programming. Tutorial at SC17, November 2017. Original code that was adapted and used in this work. https://www.mcs.anl.gov/~thakur/sc17-mpi-tutorial/
 * CARMO, B. S. et al. USP CADASE Project. Tutorial on using SDumont, including using the Jupyter Notebook (in Portuguese). https://sites.usp.br/cadase/recursos-computacionais/tutoriais-sdumont/
 * SDumont official website (in Portuguese). https://sdumont.lncc.br/
 * Using Jupyter Notebooks on Bridges. Pittsburgh Supercomputing Center. https://www.psc.edu/resources/software/jupyter/
