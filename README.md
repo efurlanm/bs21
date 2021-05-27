@@ -12,4 +12,4 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 
 # License
 
-My work follows the CC0 license. Other authors included or mentioned follow their respective licenses.
+The main work follows the CC0 license. Other authors included or mentioned follow their respective licenses.
