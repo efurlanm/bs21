@@ -10,6 +10,15 @@ The different implementations are in the Jupyter Notebook files in this reposito
 Authors thank LNCC (National Laboratory for Scientific Computing) for grant 205341 AMPEMI (call 2020-I), which allows access to the Santos Dumont supercomputer (node of the SINAPAD, the Brazilian HPC system).
 
 
+# Links of interest
+
+* CARMO, B. S. et al. USP CADASE Project. Tutorial on using SDumont, including using the Jupyter Notebook (in Portuguese). https://sites.usp.br/cadase/recursos-computacionais/tutoriais-sdumont/
+* SDumont official website (in Portuguese). https://sdumont.lncc.br/
+* Using Jupyter Notebooks on Bridges. Pittsburgh Supercomputing Center. https://www.psc.edu/resources/software/jupyter/
+* Using Jupyter Notebook. Mississippi Center for Supercomputing Research. https://mcsr.olemiss.edu/docs/using-jupyter-notebook/
+* How do I get started with Jupyter Notebooks? Minnesota Supercomputing Institute. https://www.msi.umn.edu/support/faq/how-do-i-get-started-jupyter-notebooks
+
+
 # License
 
-The main work follows the CC0 license. Other authors included or mentioned follow their respective licenses.
+The main work follows the CC0 license. Other authors included or mentioned follow their respective licenses. 
