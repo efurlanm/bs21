@@ -15,6 +15,7 @@ Mansour et al. [[3]](#3) describes the rewriting of an HPC geodynamic modeling a
 
 Nishimura et al. [[4]](#4) describes the rewriting of the Tracy library used for lattice optimization, using the Python environment including JN, for ease of use and flexibility, running on HPC clusters at the Lawrence Berkeley National Laboratory. The balance between performance and productivity was achieved through the joint use of C++ and Python. The need to become user-friendly is due to the fact that many scientists are not comfortable dealing with complex software development tools.
 
+
 ## Acknowledgements
 
 Authors thank LNCC (National Laboratory for Scientific Computing) for grant 205341 AMPEMI (call 2020-I), which allows access to the Santos Dumont supercomputer (node of the SINAPAD, the Brazilian HPC system).
