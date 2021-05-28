@@ -11,7 +11,7 @@ Milligan [[1]](#1) describes how the Minnesota Supercomputing Institute at the U
 
 Thomas et al. [[2]](#2) describes the use of JN, a popular and flexible web application for literate computing, for interactive and data intensive supercomputing in a Cray XC40 Cori system, at the National Center for Scientific Computing in Energy Research (NERSC). The work shows motivation, implementation, and lessons learned.
 
-Mansour et al. [[3]](#3) describes
+Mansour et al. [[3]](#3) describes the rewriting of an HPC geodynamic modeling application to use the resources available in the Python environment, including JN. The application is used in the Python UWGeodynamics module that allows a structured interface for building geodynamic models, and is used in several recent publications.
 
 
 ## Acknowledgements
