@@ -11,8 +11,9 @@ Milligan [[1]](#1) describes how the Minnesota Supercomputing Institute at the U
 
 Thomas et al. [[2]](#2) describes the use of JN, a popular and flexible web application for literate computing, for interactive and data intensive supercomputing in a Cray XC40 Cori system, at the National Center for Scientific Computing in Energy Research (NERSC). The work shows motivation, implementation, and lessons learned.
 
-Mansour et al. [[3]](#3) describes the rewriting of an HPC geodynamic modeling application to use the resources available in the Python environment, including JN. The application is used in the Python UWGeodynamics module that allows a structured interface for building geodynamic models, and is used in several recent publications.
+Mansour et al. [[3]](#3) describes the rewriting of an HPC geodynamic modeling application to use the resources available in the Python environment, including JN. The application is used in the Python UWGeodynamics module that allows a structured interface for the construction of geodynamic models, which is used in several recent publications.
 
+Nishimura et al. [[4]](#4) describes the rewriting of the Tracy library used for lattice optimization, using the Python environment including JN, for ease of use and flexibility, running on HPC clusters at the Lawrence Berkeley National Laboratory. The balance between performance and productivity was achieved through the joint use of C ++ and Python. The need to become user-friendly is due to the fact that many scientists are not comfortable dealing with complex development tools.
 
 ## Acknowledgements
 
@@ -23,7 +24,8 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 
 <div id="1">[1] Milligan, M. (2017). Interactive hpc gateways with jupyter and jupyterhub. In Proceedings of the Practice and Experience in Advanced Research Computing 2017 on Sustainability, Success and Impact (pp. 1-4). </div>
 <div id="2">[2] Thomas, R., Canon, S., Cholia, S., Gerhardt, L., & Racah, E. (2017, May). Toward interactive supercomputing at NERSC with Jupyter. In Cray User Group (CUG) Conference Proceedings. Cray User Group (CUG). </div>
-<div id="2">[3] Mansour, J., Giordani, J., Moresi, L., Beucher, R., Kaluza, O., Velic, M., ... & Beall, A. (2020). Underworld2: Python geodynamics modelling for desktop, hpc and cloud. </div>
+<div id="3">[3] Mansour, J., Giordani, J., Moresi, L., Beucher, R., Kaluza, O., Velic, M., ... & Beall, A. (2020). Underworld2: Python geodynamics modelling for desktop, hpc and cloud. </div>
+<div id="4">[4] Nishimura, H., Fernsler, K., James, S., Jung, G., Qin, Y., Song, K., & Sun, C. (2017, May). Lattice Optimization Using Jupyter Notebook on HPC Clusters. In 8th Int. Particle Accelerator Conf.(IPAC'17), Copenhagen, Denmark, 14â 19 May, 2017 (pp. 2818-2820). JACOW, Geneva, Switzerland. </div>
 
 
 ## Links of interest
