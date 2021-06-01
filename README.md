@@ -42,4 +42,4 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 
 ## License
 
-Code licensed under an MIT License. Documentation licensed under CC0. Other authors included or mentioned follow their respective licenses. 
+Code licensed under MIT. Documentation licensed under CC0. Other authors included or mentioned follow their respective licenses. 
