@@ -40,8 +40,3 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 * Using Jupyter Notebook. Mississippi Center for Supercomputing Research. https://mcsr.olemiss.edu/docs/using-jupyter-notebook/
 * How do I get started with Jupyter Notebooks? Minnesota Supercomputing Institute. https://www.msi.umn.edu/support/faq/how-do-i-get-started-jupyter-notebooks
 * Python prototyping, Jupyter, Celery, Ipyparallel-Scikit-learn, and Scoop-Deap. Aion Supercomputer. Université du Luxembourg. https://ulhpc-tutorials.readthedocs.io
-
-
-## License
-
-Code licensed under MIT. Documentation licensed under CC0. Other authors included or mentioned follow their respective licenses. 
