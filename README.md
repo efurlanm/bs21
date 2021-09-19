@@ -1,4 +1,6 @@
-# Comparison of HPC approaches in the Python environment for a 5-point stencil test problem
+# Python resources in HPC
+
+Comparison of HPC approaches in the Python environment for a 5-point stencil test problem.
 
 This work is a small primer for the use of HPC resources in the Python environment, including Jupyter Notebook (JN), in particular the use on a supercomputer. The test problem is a known problem of heat transfer over a finite surface, modeled by the partial differential equation of Poisson. It models the normalized temperature distribution on a surface over a series of iterations that make up the simulation. As commonly used for numerical solutions, this equation is discretized in a finite grid and solved using a finite difference method. The specific algorithm requires the calculation of a 5-point stencil in the 2D domain grid to update temperatures every step of the time.
 
