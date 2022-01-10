@@ -6,7 +6,6 @@ This work is a small primer for the use of HPC resources in the Python environme
 
 This repository contains the implementation code that were executed on the SDumont supercomputer using JN. The .ipynb files used are available in this repository. The JN were also used for experimentation, improvements, organization, and  documentation. The full article can be found at this [link](http://doi.org/10.5753/bresci.2021.15786).
 
-
 ## Related work
 
 Milligan [[1]](#1) describes how the Minnesota Supercomputing Institute at the University of Minnesota adopted support for interactive HPC computing and user-friendly reproducible computing using Jupyter Notebook (JN), in a supercomputing environment that includes scheduling and job control. JN is not restricted to the Python language, it can be used for other languages. Feedback surveys showed that students prefer the JN platform more than the traditional command line on the console.
@@ -17,19 +16,18 @@ Mansour et al. [[3]](#3) describes the rewriting of an HPC geodynamic modeling a
 
 Nishimura et al. [[4]](#4) describes the rewriting of the Tracy library used for lattice optimization, using the Python environment including JN, for ease of use and flexibility, running on HPC clusters at the Lawrence Berkeley National Laboratory. The balance between performance and productivity was achieved through the joint use of C++ and Python. The need to become user-friendly is due to the fact that many scientists are not comfortable dealing with complex software development tools.
 
-
 ## Acknowledgements
 
 Authors thank LNCC (National Laboratory for Scientific Computing) for grant 205341 AMPEMI (call 2020-I), which allows access to the Santos Dumont supercomputer (node of the SINAPAD, the Brazilian HPC system).
 
 
-## References mentioned in this document
+
+## References
 
 <div id="1">[1] Milligan, M. (2017). Interactive hpc gateways with jupyter and jupyterhub. In Proceedings of the Practice and Experience in Advanced Research Computing 2017 on Sustainability, Success and Impact (pp. 1-4). </div>
 <div id="2">[2] Thomas, R., Canon, S., Cholia, S., Gerhardt, L., & Racah, E. (2017, May). Toward interactive supercomputing at NERSC with Jupyter. In Cray User Group (CUG) Conference Proceedings. Cray User Group (CUG). </div>
 <div id="3">[3] Mansour, J., Giordani, J., Moresi, L., Beucher, R., Kaluza, O., Velic, M., ... & Beall, A. (2020). Underworld2: Python geodynamics modelling for desktop, hpc and cloud. </div>
 <div id="4">[4] Nishimura, H., Fernsler, K., James, S., Jung, G., Qin, Y., Song, K., & Sun, C. (2017, May). Lattice Optimization Using Jupyter Notebook on HPC Clusters. In 8th Int. Particle Accelerator Conf.(IPAC'17), Copenhagen, Denmark, 14â 19 May, 2017 (pp. 2818-2820). JACOW, Geneva, Switzerland. </div>
-
 
 ## Links of interest
 
