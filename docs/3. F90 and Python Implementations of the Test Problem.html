@@ -1,0 +1,566 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Eduardo Furlan">
+      
+      
+      
+        <link rel="prev" href="2.%20The%20Five-Point%20Stencil%20Test%20Problem.html">
+      
+      
+        <link rel="next" href="4.%20Analysis%20of%20the%20Parallel%20Performance%20for%20the%20Test%20Problem.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>3. F90 and Python Implementations of the Test Problem - Python resources in HPC</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="javascripts/katex/katex.min.css">
+    
+      <link rel="stylesheet" href="css/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#31-f90-serial-and-parallel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Python resources in HPC" class="md-header__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python resources in HPC
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. F90 and Python Implementations of the Test Problem
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="http://github.com/efurlanm/bs21/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bs21
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Python resources in HPC" class="md-nav__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Python resources in HPC
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="http://github.com/efurlanm/bs21/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bs21
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.%20Introduction.html" class="md-nav__link">
+        1. Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.%20The%20Five-Point%20Stencil%20Test%20Problem.html" class="md-nav__link">
+        2. The Five Point Stencil Test Problem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3. F90 and Python Implementations of the Test Problem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="3.%20F90%20and%20Python%20Implementations%20of%20the%20Test%20Problem.html" class="md-nav__link md-nav__link--active">
+        3. F90 and Python Implementations of the Test Problem
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-f90-serial-and-parallel" class="md-nav__link">
+    3.1. F90 Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-standard-python-serial-and-parallel" class="md-nav__link">
+    3.2. Standard Python Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-f2py-serial-and-parallel" class="md-nav__link">
+    3.3. F2Py Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-cython-serial-and-parallel" class="md-nav__link">
+    3.4. Cython Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-numba-serial-and-parallel" class="md-nav__link">
+    3.5. Numba Serial and Parallel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.%20Analysis%20of%20the%20Parallel%20Performance%20for%20the%20Test%20Problem.html" class="md-nav__link">
+        4. Analysis of the Parallel Performance for the Test Problem
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.%20Final%20Remarks.html" class="md-nav__link">
+        5. Final Remarks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.%20Acknowledgements.html" class="md-nav__link">
+        6. Acknowledgements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="references.html" class="md-nav__link">
+        References
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-f90-serial-and-parallel" class="md-nav__link">
+    3.1. F90 Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-standard-python-serial-and-parallel" class="md-nav__link">
+    3.2. Standard Python Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-f2py-serial-and-parallel" class="md-nav__link">
+    3.3. F2Py Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-cython-serial-and-parallel" class="md-nav__link">
+    3.4. Cython Serial and Parallel
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-numba-serial-and-parallel" class="md-nav__link">
+    3.5. Numba Serial and Parallel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>3. F90 and Python Implementations of the Test Problem</h1>
+
+<p>Several serial and parallel implementations of the test problem, described in the previous section, have been written and executed. Its description and results of processing performance are shown below. Implementations include F90, taken as a reference, standard Python, Fortran-to-Python (F2Py), Cython, and Numba (including Numba-GPU). In this work, all parallel versions of these implementations are based on the Message Passing Interface (MPI) communication library, which is wrapped by the MPI API for Python (mpi4py) <a href="references.html#5">[5]</a>, and allows the execution of MPI processes of the Python environment. Parallelization using threads is restricted to the execution of a  Numba-compiled Python function in a GPU, which will also be discussed later. Parallelization using mpi4py allows the use of one or more computer nodes.</p>
+<h2 id="31-f90-serial-and-parallel">3.1. F90 Serial and Parallel</h2>
+<p>F90 is described because it was taken as a reference for Python implementations, and was compiled with GNU gfortran. The serial version is the implementation of the algorithm described in the previous section, and the parallel version employs the standard MPI asynchronous non-blocking communication functions MPI_ISend() and MPI_IRecv(). At the end of each time step of the algorithm, synchronization is necessary for each sub-domain to update the phantom zones of all neighboring sub-domains. For a square grid with $ N \times N $ points and $ p $ MPI processes, each process is assigned to a sub-domain with a total of $ [(N / p) +2] \times [(N / p) +2 ] $ points. The part of the code that requires performance, updates the domain grid using the 5-point stencil (Listing 1).</p>
+<p><em>Listing 1. Time-consuming part of the F90 code of the test problem</em>
+<div class="highlight"><pre><span></span><code><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">by</span><span class="o">+</span><span class="mi">1</span>
+<span class="w">  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">bx</span><span class="o">+</span><span class="mi">1</span>
+<span class="w">    </span><span class="n">anew</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aold</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aold</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">aold</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="w">  </span><span class="k">enddo</span>
+<span class="k">enddo</span>
+</code></pre></div></p>
+<h2 id="32-standard-python-serial-and-parallel">3.2. Standard Python Serial and Parallel</h2>
+<p>The portability of the F90 code to Python is straightforward, without any external library except the NumPy library of numerical tools. Part of the Python loops can be executed transparently by resources from the Numpy library. The structure and sequence of the original code are preserved and executed interactively by the Python interpreter in the Jupyter Notebook environment. In this way, it is easy to modify the code or its parameters, show and record the results, perform the prototyping to check the accuracy of the algorithm and document its code and description. In this step, the user can take advantage of the modular nature of Python to selectively optimize the code, for example, by porting a specific module to F90 or replacing it with a library function for performance. Parallelization is possible using the Python multiprocessing environment which provides many ways of providing parallel execution, according to the chosen library. However, in this work, the library mpi4py (MPI for Python) was used.</p>
+<h2 id="33-f2py-serial-and-parallel">3.3. F2Py Serial and Parallel</h2>
+<p>F2Py is a wrapper that creates a Python module by compiling the F90 source code and requires the definition of a function with a list of arguments to be passed for the execution of the Python module, such as number of grid points, location and heat rate of sources, number of iterations, etc. In the case of the F90 code already parallelized with MPI, the module can be executed in parallel by the F90 code itself. However, if the F90 code has not yet been parallelized, the typical alternative is to use the mpi4py library (MPI for Python), but, eventually, it will be necessary to break the original code into parts and choose computationally intensive ones to parallelize with MPI. Therefore, F2Py seems more convenient when different Python modules need to be generated and called interactively. The mpi4py library resembles the F90 MPI and allows Python to perform a job using one or more shared memory computer nodes, each with multi-core processors.</p>
+<h2 id="34-cython-serial-and-parallel">3.4. Cython Serial and Parallel</h2>
+<p>Cython is a static optimization compiler for the Python and Cython programming languages. It is generally used to create standard modules and to wrap C/C++ code. The Cython source code is first compiled for the C/C++ language, which is then compiled transparently by the operating system's standard compiler, generating executable machine code. Each module generated by Cython requires the definition of a corresponding standard Python function, and the performance depends on the syntactic and semantic extensions used, the resources used by the Python interpreter and the choice of libraries. The result of the compilation is a Python module that includes an API for the generated code. In the case of the serial test problem, the complete code was compiled by Cython, while in the case of the parallel code, a separate module was created compiling the double loop that updates the 2D domain, and then the mpi4py library was used. The time-consuming function that updates the domain grid using the 5-point stencil is shown in Listing 2.</p>
+<p><em>Listing 2. Time-consuming part of the Cython code of the test problem</em>
+<div class="highlight"><pre><span></span><code><span class="n">cpdef</span> <span class="n">stp</span><span class="p">(</span><span class="n">double</span><span class="p">[:,::</span><span class="mi">1</span><span class="p">]</span> <span class="n">anew</span><span class="p">,</span> <span class="n">double</span><span class="p">[:,::</span><span class="mi">1</span><span class="p">]</span> <span class="n">aold</span><span class="p">,</span><span class="n">Py_ssize_t</span> <span class="n">by</span><span class="p">,</span><span class="n">Py_ssize_t</span> <span class="n">bx</span><span class="p">)</span> <span class="p">:</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">bx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">by</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+      <span class="n">anew</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+</code></pre></div></p>
+<h2 id="35-numba-serial-and-parallel">3.5. Numba Serial and Parallel</h2>
+<p>Numba is a JIT (just-in-time) compiler, which compiles the code at run time and uses part of the Python language and part of the NumPy module. It uses resources from the LLVM project, which is a set of modular and reusable technologies and tools for building compilers, developed by the University of Illinois at Urbana-Campaign since 2000, which allows the generation of machine code optimized for CPU or GPU. In order to compile the code for the test problem, an approach similar to Cython was adopted, creating a Python function that embeds part of the code and is compiled by Numba. The rest of the Python code is interpreted by the standard Python, as it runs quickly. In the case of parallel code, to run on multiple cores, the mpi4py library is used, and GPU execution is also possible, as Numba supports part of the NVidia CUDA API, requiring the definition of the kernel that will run on the GPU. The processing performance for the Numba-GPU version is shown below in <a href="4.%20Analysis%20of%20the%20Parallel%20Performance%20for%20the%20Test%20Problem.html#4.2. Processing Performance of the Numba-GPU Implementation.md">subsection 4.2</a>. The time-consuming function is shown in Listing 3.</p>
+<p><em>Listing 3. Time-consuming part of the Numba code of the test problem</em>
+<div class="highlight"><pre><span></span><code><span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">kernel</span><span class="p">(</span><span class="n">anew</span><span class="p">,</span><span class="n">aold</span><span class="p">):</span>
+  <span class="n">anew</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">2.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="mf">4.0</span><span class="o">*</span><span class="p">(</span><span class="n">aold</span><span class="p">[</span><span class="mi">2</span><span class="p">:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span> <span class="o">+</span> <span class="n">aold</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC BY 4.0 License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="javascripts/katex/katex.min.js"></script>
+        
+      
+        
+          <script src="javascripts/katex/contrib/auto-render.min.js"></script>
+        
+      
+        
+          <script src="javascripts/katex.js"></script>
+        
+      
+        
+          <script src="javascripts/mermaid/mermaid.min.js"></script>
+        
+      
+    
+  </body>
+</html>

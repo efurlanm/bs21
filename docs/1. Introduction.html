@@ -11,15 +11,17 @@
       
       
       
+        <link rel="prev" href="index.html">
       
-        <link rel="next" href="1.%20Introduction.html">
+      
+        <link rel="next" href="2.%20The%20Five-Point%20Stencil%20Test%20Problem.html">
       
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Python resources in HPC</title>
+        <title>1. Introduction - Python resources in HPC</title>
       
     
     
@@ -64,11 +66,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#comparison-of-high-performance-computing-approaches-in-the-python-environment-for-a-five-point-stencil-test-problem" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem
+              1. Introduction
             
           </span>
         </div>
@@ -210,21 +207,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
         Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem
       </a>
-      
     </li>
   
 
@@ -235,11 +222,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="1.%20Introduction.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="1.%20Introduction.html" class="md-nav__link md-nav__link--active">
         1. Introduction
       </a>
+      
     </li>
   
 
@@ -351,8 +346,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -370,21 +363,20 @@
   
 
 
-<h1 id="comparison-of-high-performance-computing-approaches-in-the-python-environment-for-a-five-point-stencil-test-problem">Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem</h1>
-<p><em>Last edited: 2022-02-04<br />
-Website: <a href="http://efurlanm.github.io/bs21/">http://efurlanm.github.io/bs21/</a></em></p>
-<table>
-    <tr>
-        <td><img src="img/construction.gif"></td>
-        <td>This work is permanently under construction, so its content changes constantly.</td>
-    </tr>
-</table>
+  <h1>1. Introduction</h1>
 
-<p>Authors: Eduardo F. Miranda; Stephan Stephany<br />
-INPE - Instituto Nacional de Pesquisas Espaciais<br />
-São José dos Campos - SP - Brazil<br />
-{eduardo.miranda,stephan.stephany}@inpe.br</p>
-<p><strong>Abstract</strong>. available in the Python programming environment of the LNCC Santos Dumont supercomputer, are compared using a specific test problem. Python includes specific libraries, implementations, development tools, documentation, optimization and parallelization resources. It provides a straightforward way to program using a high level of abstraction, but the parallelization features for exploring multiple cores, processors, or accelerators such as GPUs, are diverse and may not be easily chosen by the user. Serial and parallel implementations of a test problem in Fortran 90 are taken as benchmarks to compare performance. This work is a primer for the use of HPC resources in Python.</p>
+<p>Python is a modern and friendly language, has clean syntax, good readability, easy interface with external applications, allows quick implementation through the use of scripts, has access to a wide community of developers and has a large collection of scientific libraries. In addition, it supports High Performance Computing (HPC) through integrated or external libraries. A powerful programming environment is provided, combining Python with an interactive shell like IPython, allowing for rapid prototyping. Python's availability comes in compiler packages like Intel or in most supercomputer programming environments. Application programs implemented in languages like Fortran 90 (hereinafter referred to as F90) or C, although they require massive parallel processing, can be encapsulated in the Python environment through modular wrappers, but eventually with some loss of performance. Such flexibility facilitates simulations, analyzes and data visualization <a href="references.html#3">[3]</a>, including large-scale scientific applications. Therefore, Python provides a friendly and interactive programming environment that is convenient for trial and error, greedy optimization, or other common exploitation schemes. According to the IEEE Spectrum classification, Python is the most popular programming language, followed by Java and C <a href="references.html#6">[6]</a>.</p>
+<p>This work aims to explore some parallelization approaches available in the Python ecosystem on the Santos Dumont (SDumont) supercomputer of the National Scientific Computing Laboratory (LNCC), which includes libraries, frameworks and tools. The intention is to describe and discuss some HPC approaches available in Python programming, such as parallel processing or the use of a Graphics Processing Unit (GPU). The performance of the Python HPC approaches is compared to the corresponding serial and parallel F90 implementations for a specific test problem. Regarding the ease of programming and processing performance, there is an exchange between languages like F90 or C and the Python environment, although the implementation of an application is more difficult than in Python, they are simple to optimize, parallelize and provide better performance. However, today there are many libraries and frameworks that provide HPC capabilities for Python, making it difficult to analyze this trade-off.</p>
+<p>In short, this work implements an HPC application in Python, focusing on subsidies for those who are starting in the Python ecosystem, perhaps attracting more users to the HPC environment. It compares the serial and parallel performance of different implementations of a 5-point stencil test problem, related to a 2D heat transfer problem.
+The implementations were coded in F90 and also in Python using some resources for HPC, and the code is available at <a href="https://github.com/efurlanm/bs21">https://github.com/efurlanm/bs21</a>. Some more common HPC resources were chosen for this work, as there are countless HPC features available for Python.
+Except for a GPU implementation, parallelization is achieved using the Message Passing Interface (MPI) communication library <a href="references.html#1">[1]</a>. Here are some general considerations about this work to explain its scope in the vast Python environment:</p>
+<ol>
+<li>Python environment is very diverse, and Python code can be linked to a multitude of APIs/libraries for HPC and therefore programs can be written in different ways;</li>
+<li>The Python implementations in this work include HPC solutions for standard Python, Cython, Numba, Numba-GPU and F2Py, but there are many others;</li>
+<li>The Python multiprocessing environment allows parallelization by MPI processes, OpenMP threads or even GPU threads. However, in this work, Python implementations are based on MPI, except for the GPU-based implementation, used to exemplify the use of such a processing accelerator. All implementations were executed on a supercomputer;</li>
+<li>The performance results are specific to the selected test problem and its size. Therefore, it can be expected that different applications and problem sizes can lead to a different analysis of processing performance. However, they can help the Python programmer choose a more convenient Python HPC implementation. </li>
+</ol>
+<p>This work is a small primer for the use of HPC resources in the Python programming environment, in particular the use on a supercomputer.</p>
 
 
 

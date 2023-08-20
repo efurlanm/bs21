@@ -1,6 +1,7 @@
 # HPC approaches in the Python environment
 
-*Last edited: 2023-08-20*
+*Last edited: 2023-08-20
+Website: https://efurlanm.github.io/bs21/*
 
 Paper: Comparison of HPC approaches in the Python environment for a 5-point stencil test problem.
 
