@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"index.html","title":"Home","text":"<p>Hello, world! </p>"}]}
+{"config":{"lang":["en"],"separator":"[\\s\\-]+","pipeline":["stopWordFilter"]},"docs":[{"location":"index.html","title":"Python resources in HPC","text":"<p>Last edited: 2022-02-04 Website: http://efurlanm.github.io/bs21/</p> <p></p> This work is permanently under construction, so its content changes constantly."}]}

@@ -24,17 +24,17 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 
 ## References
 
-<span id="1">[1] Milligan, M. (2017). Interactive hpc gateways with jupyter and jupyterhub. In Proceedings of the Practice and Experience in Advanced Research Computing 2017 on Sustainability, Success and Impact (pp. 1-4). </span>
-<span id="2">[2] Thomas, R., Canon, S., Cholia, S., Gerhardt, L., & Racah, E. (2017, May). Toward interactive supercomputing at NERSC with Jupyter. In Cray User Group (CUG) Conference Proceedings. Cray User Group (CUG). </span>
-<span id="3">[3] Mansour, J., Giordani, J., Moresi, L., Beucher, R., Kaluza, O., Velic, M., ... & Beall, A. (2020). Underworld2: Python geodynamics modelling for desktop, hpc and cloud. </span>
-<span id="4">[4] Nishimura, H., Fernsler, K., James, S., Jung, G., Qin, Y., Song, K., & Sun, C. (2017, May). Lattice Optimization Using Jupyter Notebook on HPC Clusters. In 8th Int. Particle Accelerator Conf.(IPAC'17), Copenhagen, Denmark, 14â 19 May, 2017 (pp. 2818-2820). JACOW, Geneva, Switzerland. </span>
+<span id="1">[1] Milligan, M. (2017). Interactive HPC gateways with Jupyter and Jupyterhub. In Proceedings of the Practice and Experience in Advanced Research Computing 2017 on Sustainability, Success and Impact (pp. 1-4).</span>  
+<span id="2">[2] Thomas, R., Canon, S., Cholia, S., Gerhardt, L., & Racah, E. (2017, May). Toward interactive supercomputing at NERSC with Jupyter. In Cray User Group (CUG) Conference Proceedings. Cray User Group (CUG).</span>  
+<span id="3">[3] Mansour, J., Giordani, J., Moresi, L., Beucher, R., Kaluza, O., Velic, M., ... & Beall, A. (2020). Underworld2: Python geodynamics modelling for desktop, HPC and cloud. </span>  
+<span id="4">[4] Nishimura, H., Fernsler, K., James, S., Jung, G., Qin, Y., Song, K., & Sun, C. (2017, May). Lattice Optimization Using Jupyter Notebook on HPC Clusters. In 8th Int. Particle Accelerator Conf. (IPAC'17), Copenhagen, Denmark, 14-19 May, 2017 (pp. 2818-2820). JACOW, Geneva, Switzerland. </span>
 
 ## Links of interest
 
-* BALAJI, P.; et al. Advanced MPI Programming. Tutorial at SC17, November 2017. Original code that was adapted and used in this work. https://www.mcs.anl.gov/~thakur/sc17-mpi-tutorial/
-* CARMO, B. S.; et al. USP CADASE Project. Tutorial on using SDumont, including using the Jupyter Notebook (in Portuguese). https://sites.usp.br/cadase/recursos-computacionais/tutoriais-sdumont/
-* SDumont official website (in Portuguese). https://sdumont.lncc.br/
-* Using Jupyter Notebooks on Bridges. Pittsburgh Supercomputing Center. https://www.psc.edu/resources/software/jupyter/
-* Using Jupyter Notebook. Mississippi Center for Supercomputing Research. https://mcsr.olemiss.edu/docs/using-jupyter-notebook/
-* How do I get started with Jupyter Notebooks? Minnesota Supercomputing Institute. https://www.msi.umn.edu/support/faq/how-do-i-get-started-jupyter-notebooks
-* Python prototyping, Jupyter, Celery, Ipyparallel-Scikit-learn, and Scoop-Deap. Aion Supercomputer. Université du Luxembourg. https://ulhpc-tutorials.readthedocs.io
+* BALAJI, P.; et al. Advanced MPI Programming. Tutorial at SC17, November 2017. Original code that was adapted and used in this work. <https://www.mcs.anl.gov/~thakur/sc17-mpi-tutorial/>
+* CARMO, B. S.; et al. USP CADASE Project. Tutorial on using SDumont, including using the Jupyter Notebook (in Portuguese). <https://sites.usp.br/cadase/recursos-computacionais/tutoriais-sdumont/>
+* SDumont official website (in Portuguese). <https://sdumont.lncc.br/>
+* Using Jupyter Notebooks on Bridges. Pittsburgh Supercomputing Center. <https://www.psc.edu/resources/software/jupyter/>
+* Using Jupyter Notebook. Mississippi Center for Supercomputing Research. <https://mcsr.olemiss.edu/docs/using-jupyter-notebook/>
+* How do I get started with Jupyter Notebooks? Minnesota Supercomputing Institute. <https://www.msi.umn.edu/support/faq/how-do-i-get-started-jupyter-notebooks/>
+* Python prototyping, Jupyter, Celery, Ipyparallel-Scikit-learn, and Scoop-Deap. Aion Supercomputer. Université du Luxembourg. <https://ulhpc-tutorials.readthedocs.io>
