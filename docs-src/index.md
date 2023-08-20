@@ -3,13 +3,6 @@
 *Last edited: 2022-02-04  
 Website: <http://efurlanm.github.io/bs21/>*
 
-<table>
-    <tr>
-        <td><img src="img/construction.gif"></td>
-        <td>This work is permanently under construction, so its content changes constantly.</td>
-    </tr>
-</table>
-
 Authors: Eduardo F. Miranda; Stephan Stephany  
 INPE - Instituto Nacional de Pesquisas Espaciais  
 São José dos Campos - SP - Brazil  

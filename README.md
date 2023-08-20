@@ -1,13 +1,13 @@
 # HPC approaches in the Python environment
 
 *Last edited: 2023-08-20  
-Website: https://efurlanm.github.io/bs21/*
+Website: <https://efurlanm.github.io/bs21/>*
 
-Paper: Comparison of HPC approaches in the Python environment for a 5-point stencil test problem.
+Paper: [Comparison of HPC approaches in the Python environment for a 5-point stencil test problem](https://sol.sbc.org.br/index.php/bresci/issue/view/759).
 
 This work is a small primer for the use of HPC resources in the Python environment, including Jupyter Notebook (JN), in particular the use on a supercomputer. The test problem is a known problem of heat transfer over a finite surface, modeled by the partial differential equation of Poisson. It models the normalized temperature distribution on a surface over a series of iterations that make up the simulation. As commonly used for numerical solutions, this equation is discretized in a finite grid and solved using a finite difference method. The specific algorithm requires the calculation of a 5-point stencil in the 2D domain grid to update temperatures every step of the time.
 
-This repository contains the implementation code that were executed on the SDumont supercomputer using JN. The .ipynb files used are available in this repository. The JN were also used for experimentation, improvements, organization, and  documentation. The article can be found in the [Proceedings of the Brazilian e-Science Workshop (BreSci) 2021](https://sol.sbc.org.br/index.php/bresci/issue/view/759), [DOI](http://doi.org/10.5753/bresci.2021.15786).
+This repository contains the implementation code that were executed on the SDumont supercomputer using JN. The .ipynb files used are available in this repository. The JN were also used for experimentation, improvements, organization, and  documentation. The article can be found in the Proceedings of the Brazilian e-Science Workshop (BreSci) 2021, [DOI](http://doi.org/10.5753/bresci.2021.15786).
 
 ## Related work
 
@@ -39,3 +39,5 @@ Authors thank LNCC (National Laboratory for Scientific Computing) for grant 2053
 * Using Jupyter Notebook. Mississippi Center for Supercomputing Research. <https://mcsr.olemiss.edu/docs/using-jupyter-notebook/>
 * How do I get started with Jupyter Notebooks? Minnesota Supercomputing Institute. <https://www.msi.umn.edu/support/faq/how-do-i-get-started-jupyter-notebooks/>
 * Python prototyping, Jupyter, Celery, Ipyparallel-Scikit-learn, and Scoop-Deap. Aion Supercomputer. Université du Luxembourg. <https://ulhpc-tutorials.readthedocs.io>
+
+## Download
