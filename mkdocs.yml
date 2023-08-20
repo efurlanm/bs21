@@ -12,8 +12,8 @@ theme:
     font: false
     palette:
 # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/    
-        primary: blue grey
-        accent: blue grey
+        primary: teal
+        accent: teal
     features:
         - header.autohide
 extra_javascript:
