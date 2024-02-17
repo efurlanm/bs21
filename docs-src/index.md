@@ -1,7 +1,9 @@
 # Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem
 
-*Last edited: 2022-02-04  
-Website: <http://efurlanm.github.io/bs21/>*
+<small>
+Last edited: 2024-02-17  
+Website: <http://efurlanm.github.io/bs21/>
+</small>
 
 Authors: Eduardo F. Miranda; Stephan Stephany  
 INPE - Instituto Nacional de Pesquisas Espaciais  

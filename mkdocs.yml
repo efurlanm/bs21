@@ -10,32 +10,32 @@ use_directory_urls: false
 theme:
     name: material
     font: false
+# https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
     palette:
-# https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/    
         primary: teal
         accent: teal
     features:
         - header.autohide
-extra_javascript:
-    - javascripts/katex/katex.min.js
-    - javascripts/katex/contrib/auto-render.min.js
-    - javascripts/katex.js
-    - javascripts/mermaid/mermaid.min.js
-extra_css:
-    - javascripts/katex/katex.min.css
-    - css/extra.css
 plugins:
     - offline
     - search
 markdown_extensions:
-    - pymdownx.superfences:
-        custom_fences:
-            - name: mermaid
-              class: mermaid
-              format: !!python/name:pymdownx.superfences.fence_code_format
+    #- pymdownx.superfences:
+        #custom_fences:
+            #- name: mermaid
+              #class: mermaid
+              #format: !!python/name:pymdownx.superfences.fence_code_format
     - def_list
     - md_in_html
     - tables
+extra_javascript:
+    - javascripts/katex/katex.min.js
+    - javascripts/katex/contrib/auto-render.min.js
+    - javascripts/katex.js
+    #- javascripts/mermaid/mermaid.min.js
+extra_css:
+    - javascripts/katex/katex.min.css
+    - css/extra.css
 exclude_docs: |
     .ipynb_checkpoints
     .git
