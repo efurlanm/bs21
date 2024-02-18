@@ -1,3 +1,11 @@
+/* ### PARAGRAPH ### */
+
+.md-typeset p:not([class]) {
+    hyphens: auto;
+    text-align: justify;
+}
+
+
 /* ### CODE ### */
 
 .md-typeset code:not([class]) {
@@ -29,20 +37,4 @@
 
 .md-typeset table:not([class]) th {
     background-color: #f8f8f8;
-}
-
-
-/* ### JUPYTER ### */
-
-.jupyter-wrapper .jp-RenderedText {
-    --jp-code-font-size: .875em;
-}
-
-.md-typeset h1:not([class]) {
-    margin-top: calc(var(--jp-content-heading-margin-top));
-    margin-bottom: calc(var(--jp-content-heading-margin-bottom));
-}
-
-.jp-RenderedHTMLCommon h1 {
-    margin: var(--jp-content-heading-margin-top) 0 var(--jp-content-heading-margin-bottom) 0;
 }
