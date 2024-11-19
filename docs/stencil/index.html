@@ -10,26 +10,28 @@
         <meta name="author" content="Eduardo Furlan">
       
       
-        <link rel="canonical" href="https://efurlanm.github.io/bs21/">
+        <link rel="canonical" href="https://efurlanm.github.io/bs21/stencil/">
       
       
+        <link rel="prev" href="../introduction/">
       
-        <link rel="next" href="introduction/">
+      
+        <link rel="next" href="../implementation/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
-        <title>Python resources in HPC</title>
+        <title>2. The Five-Point Stencil Test Problem - Python resources in HPC</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,11 +50,11 @@
       
     
     
-      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="../css/extra.css">
     
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#comparison-of-high-performance-computing-approaches-in-the-python-environment-for-a-five-point-stencil-test-problem" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -92,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Python resources in HPC" class="md-header__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
+    <a href=".." title="Python resources in HPC" class="md-header__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -112,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Abstract
+              2. The Five-Point Stencil Test Problem
             
           </span>
         </div>
@@ -199,7 +196,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Python resources in HPC" class="md-nav__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
+    <a href=".." title="Python resources in HPC" class="md-nav__button md-logo" aria-label="Python resources in HPC" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -226,19 +223,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -247,7 +235,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -259,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -276,10 +263,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="stencil/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -288,6 +282,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -299,7 +294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="implementation/" class="md-nav__link">
+      <a href="../implementation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -319,7 +314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="analysis/" class="md-nav__link">
+      <a href="../analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -339,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="remarks/" class="md-nav__link">
+      <a href="../remarks/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -359,7 +354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="acknowledgements/" class="md-nav__link">
+      <a href="../acknowledgements/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -379,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -409,8 +404,6 @@
   
   
   
-    
-  
   
 </nav>
                   </div>
@@ -428,23 +421,25 @@
   
 
 
-<p><center></p>
-<h1 id="comparison-of-high-performance-computing-approaches-in-the-python-environment-for-a-five-point-stencil-test-problem">Comparison of High-performance Computing Approaches in the Python Environment for a Five-point Stencil Test Problem</h1>
-<p></center></p>
-<p><center>
-Eduardo F. Miranda. ORCID 0000-0003-1200-794X<br />
-Stephan Stephany. ORCID 0000-0002-6302-4259<br />
-National Institute for Space Research (INPE)<br />
-São José dos Campos, SP, Brazil<br />
-</center>
-<br></p>
-<p><strong>Abstract</strong>. Several of the most important high-performance computing approaches available in the Python programming environment of the LNCC Santos Dumont supercomputer, are compared using a specific test problem. Python includes specific libraries, implementations, development tools, documentation, optimization and parallelization resources. It provides a straightforward way to program using a high level of abstraction, but the parallelization features for exploring multiple cores, processors, or accelerators such as GPUs, are diverse and may not be easily chosen by the user. Serial and parallel implementations of a test problem in Fortran 90 are taken as benchmarks to compare performance. This work is a primer for the use of HPC resources in Python.</p>
-<!--FOOTER-->
-<p><br><br><br><small>
-Last edited: 2024-02-18 &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="http://efurlanm.github.io/bs21/">Website</a> &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="https://github.com/efurlanm/bs21/">Repository</a>
-</small></p>
+  <h1>2. The Five-Point Stencil Test Problem</h1>
+
+<p>The adopted test problem is a known problem of heat transfer over a finite surface, modeled by the partial differential equation of Poisson. It models the normalized temperature distribution on a surface over a series of iterations that make up the simulation. As commonly used for numerical solutions, this equation is discretized in a finite grid and solved using a finite difference method. The specific algorithm requires the calculation of a 5-point stencil in the 2D domain grid <a href="../references/#4">[4]</a> to update temperatures every step of the time.
+A uniform temperature field with a zero value is assumed on the surface and, typically, adiabatic or Dirichlet boundary conditions are assumed, the latter being assumed for this problem. Three constant rate heat sources were placed at localized grid points, each introducing an amount of unit heat in each time interval. The heat transfer simulation is modeled by a finite number of time steps, with all points on the grid being updated at each time step.
+The temperature distribution will be determined by the heat sources and the boundary conditions of Dirichlet, which implies zero temperature at the points of the boundary grid <a href="../references/#7">[7]</a>. The 5-point stencil consists of updating a point on the grid by averaging the temperatures of yourself with the temperatures of your four neighbors, left-right and top-bottom in the grid.
+The temperature field $ U $ is defined on a discrete grid $ (x, y) $ with spatial resolutions $ \Delta x = \Delta y = h $. Thus, discretization maps the real Cartesian coordinates $ (x, y) $ to a discrete grid $ (i, j) $, with $ U_ {x, y} = U_ {i, j} \,, \, U_ { x + h, y} = U_ {i + 1, j} \, $ for the dimension $ x $ and similarly for the dimension $ y $. The 2D discretized Poisson equation with a 5-point stencil is expressed by the Equation</p>
+<div class="arithmatex">\[
+\frac{\partial^2 U}{\partial x^2} +
+\frac{\partial^2 U}{\partial y^2} \approx
+\frac{U_{i+1,j}+U_{i,j+1}-4U_{i,j}+U_{i-1,j}+U_{i,j-1}} {h^2}
+\]</div>
+<p>Considering the chosen test problem, an initial implementation of the algorithm proposed by Balaji <a href="../references/#2">[2]</a> in the C language, was easily ported to F90. The discretized 2D domain of the heat transfer problem chosen as the test problem, showing 9 subdomains divided by green lines, with their grid points and phantom zones in yellow, is shown to the right of <a href="#Figure-1">Figure 1</a>, where the red cross denotes the 5-point stencil. The left side of <a href="#Figure-1">Figure 1</a> shows the final temperature distribution over a finite surface after 500 iterations, exemplified by the grid $ 10 \times 10 $ and three arbitrarily chosen heat sources, shown as red cells, where the simulation only covers the inner grid $ 8 \times 8 $, and the initial zero temperature distribution is indicated in blue. This scheme requires splitting the original square domain into a perfect square number of square subdomains.</p>
+<p><br></p>
+<figure id="Figure-1">
+<img src=img/calomalhtran.png>
+<figcaption>
+Figure 1. Left: final temperature distribution; Right: the discretized 2D domain.
+</figcaption>
+</figure>
 
 
 
@@ -495,12 +490,12 @@ Last edited: 2024-02-18 &nbsp;&nbsp;|&nbsp;&nbsp;
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide"], "search": "assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["header.autohide"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
-        <script src="javascripts/katex.js"></script>
+        <script src="../javascripts/katex.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
       
