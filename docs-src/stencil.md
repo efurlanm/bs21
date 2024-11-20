@@ -12,8 +12,8 @@ $$
 Considering the chosen test problem, an initial implementation of the algorithm proposed by Balaji [[2]](references.md#2) in the C language, was easily ported to F90. The discretized 2D domain of the heat transfer problem chosen as the test problem, showing 9 subdomains divided by green lines, with their grid points and phantom zones in yellow, is shown to the right of [Figure 1](#Figure-1), where the red cross denotes the 5-point stencil. The left side of [Figure 1](#Figure-1) shows the final temperature distribution over a finite surface after 500 iterations, exemplified by the grid $ 10 \times 10 $ and three arbitrarily chosen heat sources, shown as red cells, where the simulation only covers the inner grid $ 8 \times 8 $, and the initial zero temperature distribution is indicated in blue. This scheme requires splitting the original square domain into a perfect square number of square subdomains.
 
 <br>
-<figure id="Figure-1">
-<img src=img/calomalhtran.png>
+<figure id="Figure-1" markdown="span">
+![](img/calomalhtran.png)
 <figcaption>
 Figure 1. Left: final temperature distribution; Right: the discretized 2D domain.
 </figcaption>

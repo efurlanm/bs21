@@ -42,12 +42,6 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
     
     
       <link rel="stylesheet" href="../css/extra.css">
@@ -747,12 +741,12 @@ Table 1. Performance of test problem implementations, depending on the number of
 </table>
 <p><br></p>
 <p>The <a href="#Table-1">Table 1</a> shows the processing times for the different implementations, in one or more Bull B710 nodes, for serial and MPI with 1, 4, 9, 16, 36, 49, 64 and 81 processes.
-These processes allow for perfect square subdomains (as explained in <a href="2. The Five-Point Stencil Test Problem.md">section 2</a>) in the implementation performed.</p>
+These processes allow for perfect square subdomains (as explained in <a href="../stencil/">section 2</a>) in the implementation performed.</p>
+<p><br></p>
 <figure id="Figure-2">
-<img src=img/effispee2.png>
+<img alt="" src="../img/effispee.png" />
 <figcaption>Figure 2. Speedups and efficiency of the implementations, depending on the number of processes. Dashed line denotes the linear speedup.</figcaption>
 </figure>
-
 <p>The <a href="#Figure-2">Figure 2</a> shows the corresponding speedups calculated using the F90 serial time as a reference. In general, F90 and F2Py achieved the best performances and are followed by Cython and Numba, with Python well behind. F2Py requires few changes to the original F90 code, while Cython and Numba requires minor changes to the Python code. However, Numba's performance was comparable, from 4 to 36 processes. The low performance of Python versions shows the convenience of using implementations like F2Py, Cython, or even Numba. As can be seen, the parallel scalability is poor, since the test problem algorithm updates all points of the grid at each time step, thus requiring the exchange of boundary temperatures between neighboring subdomains, in order to update the phantom zones corresponding, requiring a lot of communication between processes, which leaves the parallel efficiency below 40% for processes of 9 MPI or more. It can be seen that for up to 36 MPI processes, running on two Bull B710 nodes, all implementations performed similarly, except for standard Python. In the case of 81 MPI processes, which requires 4 computer nodes, the performance of the implementations has dropped significantly compared to 64 MPI processes, which requires 3 nodes. It is intended, as a future work, to investigate the reason for the performance differences between the different implementations. Besides these CPU-executed implementations, the next section briefly shows the use of a GPU-executed implementation.</p>
 <h2 id="42-processing-performance-of-the-numba-gpu-implementation">4.2. Processing Performance of the Numba-GPU Implementation</h2>
 <p>Numba-GPU implementation was made as an example, in order to make a very rough comparison between the performance of CPU and GPU implementations. It should not be used to draw conclusions, as such a comparison would require an extensive number of tests. This section aims to compare the performance on a single node, of: (i) implementation of a single Numba-GPU process performed on a Bull B715 node, or Bull Sequana-X node; (ii) single and serial F90 process implementations running on one or more processor cores of the Bull B715 node or Bull Sequana-X node. Note that Bull Sequana-X is a very up-to-date SDumont node, with the latest processors and GPUs. The Numba-GPU implementation was tested on a Bull B715 node using a single core, and the Tesla K40 GPU runs at 22.28&nbsp;s, close to the execution time of the F90 serial implementation. The same Numba-GPU implementation performed on a Bull Sequana-X node using a single core and a single Volta V100 GPU, was performed in just 8.02&nbsp;s, slightly more than most parallel implementations running with 4 MPI processes in the Bull B715 node. The implementation of the Numba-GPU required more modifications compared to the standard Python serial code than the others.

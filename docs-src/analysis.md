@@ -40,12 +40,12 @@ Table 1. Performance of test problem implementations, depending on the number of
 
 <br>
 
-
 The [Table 1](#Table-1) shows the processing times for the different implementations, in one or more Bull B710 nodes, for serial and MPI with 1, 4, 9, 16, 36, 49, 64 and 81 processes.
-These processes allow for perfect square subdomains (as explained in [section 2](2. The Five-Point Stencil Test Problem.md)) in the implementation performed.
+These processes allow for perfect square subdomains (as explained in [section 2](stencil.md)) in the implementation performed.
 
-<figure id="Figure-2">
-<img src=img/effispee2.png>
+<br>
+<figure id="Figure-2" markdown="span">
+![](img/effispee.png)
 <figcaption>Figure 2. Speedups and efficiency of the implementations, depending on the number of processes. Dashed line denotes the linear speedup.</figcaption>
 </figure>
 
