@@ -4,7 +4,7 @@ site_url: https://efurlanm.github.io/bs21/
 copyright: CC BY 4.0 License
 repo_name: bs21
 repo_url: http://github.com/efurlanm/bs21/
-docs_dir: docs-src
+docs_dir: src
 site_dir: docs
 theme:
     name: material
